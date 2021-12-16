@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="TodoList">
+
+	<insert id="insertItem">
+		insert into TODOLIST (title, description, category, dueDate, isCompleted, importance)
+		values
+		(#{title} , #{description} , #{category} , #{dueDate}, #{isCompleted}, #{importance})
+	</insert>
+	
+	<select id="updateItemId">
+		update TODOLIST set userid=#{sid} where userid is null
+	</select>
+	
+	<update id="updateItem">
+		update TODOLIST
+		set title=#{title}, description=#{description}, category=#{category}, dueDate=#{dueDate}, isCompleted=#{isCompleted}, importance=#{importance}
+		where id=#{id}
+	</update>
+	
+	<delete id="deleteItem">
+		delete from TODOLIST where id=#{id}
+	</delete>
+	
+	<select id="getItem" resultType="item">
+		select * from TODOLIST where id=#{id}
+	</select>
+	
+	<select id="getItemList" resultType="item">
+		select * from TODOLIST where userid=#{id} order by id desc
+	</select>
+</mapper>
