@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>manager page</title>
+<title>Admin Page</title>
 
 <style>
 body {

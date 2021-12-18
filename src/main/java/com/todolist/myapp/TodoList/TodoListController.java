@@ -34,7 +34,7 @@ public class TodoListController {
 		model.addAttribute("item", todolistService.getItemList(vo.getSid()));
 		model.addAttribute("user", vo);
 		
-		return "admin";
+		return returnUrl;
 	}
 	
 	@RequestMapping(value = "/todo/add", method = RequestMethod.GET)
