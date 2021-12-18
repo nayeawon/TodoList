@@ -10,7 +10,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" /><link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'>
 <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&amp;display=swap'>
 <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.standalone.min.css'><link rel="stylesheet" href="./style.css">
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.standalone.min.css'>
 <title>TodoList</title>
 
 <style>
@@ -50,6 +50,18 @@ body {
 .todo-item.editing .todo-actions .edit-icon {
     display: none !important;
 }
+
+.btn {
+  background-color: white; /* white background */
+  border: none; /* Remove borders */
+  cursor: pointer; /* Mouse pointer on hover */
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: lightgray;
+}
+
 </style>
 </head>
 <body>
@@ -75,7 +87,7 @@ body {
                 <i class="fa fa-calendar-times-o my-2 px-1 text-danger btn clear-due-date-button d-none" data-toggle="tooltip" data-placement="bottom" title="Clear Due date"></i>
             </div>
             <div class="col-auto px-0 mx-0 mr-2">
-                <button type="button" class="btn btn-primary">Add</button>
+                <button type="button" class="btn btn-primary" onclick=add()>Add</button>
             </div>
         </div>
     </div>
@@ -94,23 +106,22 @@ body {
                 </div>
                 <div class="col px-1 m-1 d-flex align-items-center">
                     <input type="text" class="form-control form-control-lg border-0 edit-todo-input bg-transparent rounded px-3" readonly value=${u.title} title=${u.title}/>
-                    <input type="text" class="form-control form-control-lg border-0 edit-todo-input rounded px-3 d-none" value="Buy groceries for next week" />
                 </div>
                 <div class="col-auto m-1 p-0 px-3 d-none">
                 </div>
                 <div class="col-auto m-1 p-0 todo-actions">
                     <div class="row d-flex align-items-center justify-content-end">
                         <h5 class="m-0 p-0 px-2">
-                            <i class="fa fa-pencil text-info btn m-0 p-0" data-toggle="tooltip" data-placement="bottom" title="Edit todo"></i>
+                            <button type="button" class="btn" onclick=edit()><i class="fa fa-pencil text-info btn m-0 p-0" data-toggle="tooltip" data-placement="bottom" title="Edit todo"></i></button>
                         </h5>
                         <h5 class="m-0 p-0 px-2">
-                            <i class="fa fa-trash-o text-danger btn m-0 p-0" data-toggle="tooltip" data-placement="bottom" title="Delete todo"></i>
+                            <button type="button" class="btn" onclick=delete_ok()></button><i class="fa fa-trash-o text-danger btn m-0 p-0" data-toggle="tooltip" data-placement="bottom" title="Delete todo"></i></button>
                         </h5>
                     </div>
                     <div class="row todo-created-info">
                         <div class="col-auto d-flex align-items-center pr-2">
                             <i class="fa fa-info-circle my-2 px-2 text-black-50 btn" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Created date"></i>
-                            <label class="date-label my-2 text-black-50">28th Jun 2020</label>
+                            <label class="date-label my-2 text-black-50">${u.dueDate}</label>
                         </div>
                     </div>
                 </div>
@@ -119,13 +130,26 @@ body {
     </div>
 </c:forEach>
 
-</br><a href="add">항목 추가</a>
-</br><a href="../login/logout">로그아웃</a>
+<div class="col-auto px-0 mx-0 mr-2" style="location: center">
+	<br><button type="button" class="btn btn-primary" onclick=add()>Logout</button>
+</div>
 
 <script>
 	function delete_ok(id) {
 		var a = confirm("정말로 삭제하시겠습니까?");
 		if(a) location.href='deleteok/' + id;
+	}
+	
+	function add() {
+		location.href = 'add';
+	}
+	
+	function logout() {
+		location.href = "../login/logout";
+	}
+	
+	function edit(id) {
+		location.href = '/edititem/${u.id}';
 	}
 	window.onload = function () {
 	    bootlint.showLintReportForCurrentDocument([], {
