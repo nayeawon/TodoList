@@ -6,7 +6,11 @@
 <html>
 <head>
 	<title>Edit Post</title>
-	
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" /><link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'>
+	<link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&amp;display=swap'>
+	<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.standalone.min.css'>
 	<style>
 		body {
 			font-family: "Helvetica";
@@ -25,7 +29,6 @@
 		#name {
 			text-align: center;
 			color: white;
-			background-color: #006bb3;
 		}
 		
 		#edit tr:nth-child(even){background-color: #f2f2f2;}
@@ -35,24 +38,28 @@
 
 </head>
 <body>
-<h1>글 수정하기</h1>
+<h1 class="p-1 h1 text-primary text-center mx-auto display-inline-block">Edit Task</h1>
 
 <form:form commandName="todolistVO" method="get" action="../editok">
 	<form:hidden path="id" />
 	<table id="edit">
-		<tr><td id="name">제목</td><td><form:input path="title"/></td></tr>
-		<tr><td id="name">설명</td><td><form:input path="description"/></td></tr>
-		<tr><td id="name">카테고리</td><td><form:input path="category"/></td></tr>
-		<tr><td id="name">마감일</td><td><form:input path="dueDate"/></td></tr>
-		<tr><td id="name">중요도</td><td><form:select path="importance">
+		<tr><td id="name" class="p-1 text-primary text-center mx-auto display-inline-block">제목</td><td><form:input path="title"/></td></tr>
+		<tr><td id="name" class="p-1 text-primary text-center mx-auto display-inline-block">설명</td><td><form:input path="description"/></td></tr>
+		<tr><td id="name" class="p-1 text-primary text-center mx-auto display-inline-block">카테고리</td><td><form:input path="category"/></td></tr>
+		<tr><td id="name" class="p-1 text-primary text-center mx-auto display-inline-block">마감일</td><td><form:input path="dueDate"/></td></tr>
+		<tr><td id="name" class="p-1 text-primary text-center mx-auto display-inline-block">중요도</td><td><form:select path="importance">
 			<option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
         </form:select></td></tr>
 	</table>
-	<input type="submit" value="수정하기"/>
-	<input type="button" value="취소하기" onclick="history.back()" />
+	<p></p>
+	<button type="submit" class="w-100 btn btn-lg btn-primary">수정하기</button>
+	<p></p>
+	<button type="button" class="w-100 btn btn-lg btn-primary" onclick="history.back()">취소하기</button>
+	<!-- <input type="submit" value="수정하기"/>
+	<input type="button" value="취소하기" onclick="history.back()" /> -->
 </form:form>
 
 </body>

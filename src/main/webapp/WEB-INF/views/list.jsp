@@ -50,18 +50,6 @@ body {
 .todo-item.editing .todo-actions .edit-icon {
     display: none !important;
 }
-
-.btn {
-  background-color: white; /* white background */
-  border: none; /* Remove borders */
-  cursor: pointer; /* Mouse pointer on hover */
-}
-
-/* Darker background on mouse-over */
-.btn:hover {
-  background-color: lightgray;
-}
-
 </style>
 </head>
 <body>
@@ -79,7 +67,7 @@ body {
 	<div class="col col-11 mx-auto">
 		<div class="row bg-white rounded shadow-sm p-2 add-todo-wrapper align-items-center justify-content-center">
 			<div class="col">
-				<input class="form-control form-control-lg border-0 add-todo-input bg-transparent rounded" type="text" placeholder="Add new ..">
+				<input class="form-control form-control-lg border-0 add-todo-input bg-transparent rounded" type="text" placeholder="Press button ..">
             </div>
             <div class="col-auto m-0 px-2 d-flex align-items-center">
             	<label class="text-secondary my-2 p-0 px-1 view-opt-label due-date-label d-none">Due date not set</label>
@@ -96,7 +84,7 @@ body {
 <c:forEach items="${item}" var="u">
 	<div class="row mx-1 px-5 pb-3 w-80">
         <div class="col mx-auto">
-            <!-- Todo Item 1 -->
+            <!-- Todo Item -->
             <div class="row px-3 align-items-center todo-item rounded">
                 <div class="col-auto m-1 p-0 d-flex align-items-center">
                     <h2 class="m-0 p-0">
@@ -112,10 +100,10 @@ body {
                 <div class="col-auto m-1 p-0 todo-actions">
                     <div class="row d-flex align-items-center justify-content-end">
                         <h5 class="m-0 p-0 px-2">
-                            <button type="button" class="btn" onclick=edit(${u.id})><i class="fa fa-pencil text-info btn m-0 p-0" data-toggle="tooltip" data-placement="bottom" title="Edit todo"></i></button>
+                            <i class="fa fa-pencil text-info btn m-0 p-0" data-toggle="tooltip" data-placement="bottom" title="Edit todo" onclick=edit(${u.id})></i>
                         </h5>
                         <h5 class="m-0 p-0 px-2">
-                            <button type="button" class="btn" onclick=delete_ok()></button><i class="fa fa-trash-o text-danger btn m-0 p-0" data-toggle="tooltip" data-placement="bottom" title="Delete todo"></i></button>
+                            <i class="fa fa-trash-o text-danger btn m-0 p-0" data-toggle="tooltip" data-placement="bottom" title="Delete todo" onclick=delete_ok(${u.id})></i>
                         </h5>
                     </div>
                     <div class="row todo-created-info">
@@ -131,7 +119,7 @@ body {
 </c:forEach>
 
 <div class="col-auto px-0 mx-0 mr-2" style="location: center">
-	<br><button type="button" class="btn btn-primary" onclick=add()>Logout</button>
+	<br><button type="button" class="btn btn-primary" onclick=logout()>Logout</button>
 </div>
 
 <script>

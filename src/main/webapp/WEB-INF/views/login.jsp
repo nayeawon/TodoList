@@ -20,7 +20,7 @@ body {
 }
 
 body {
-  display: flex;
+  display:center;
   align-items: center;
   padding-top: 40px;
   padding-bottom: 40px;
@@ -91,8 +91,9 @@ body {
 	      </label>
 	    </div>
 	    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+	    <p></p>
 	    <button id="register" type="button" onclick="location.href='register'">회원가입</button>
-	    <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+	    <p class="mt-5 mb-3 text-muted">&copy; 2021–Fall 실전프로젝트</p>
 	       
 	    </form>
 	</div>
