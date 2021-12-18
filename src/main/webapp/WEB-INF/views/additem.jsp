@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
 <html>
+
 <head>
 	<title>Add Post</title>
 	
@@ -51,6 +52,8 @@
 	</table>
 	<button type="button" onclick="location.href='list'">목록보기</button>
 	<button type="submit">추가하기</button>
+	
+	
 </form>
 
 </body>

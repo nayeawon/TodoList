@@ -5,79 +5,87 @@
 <html>
 <head>
 	<meth charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
 	<title>Login</title>
-	
-	<style>
-        @import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+	<link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/sign-in/">
+	<link href="../resources/css/bootstrap.min.css" rel="stylesheet">
 
-		#login {
-            display: block;
-            position: absolute;
-            top: 45%;
-            left: 50%;
-            margin-right: -50%;
-            transform: translate(-50%, -50%);
-			text-align: center;
-            font-family: 'Jeju Gothic', sans-serif;
-            width: 320px;
-            height: 160px;
-            padding-left: 30px;
-            border: 1px solid black;
-            background-color: lightgrey;
-		}
+    <style>
+       html,
+body {
+  height: 100%;
+}
 
-        h3 {
-            margin-left: -20px;
-        }
+body {
+  display: flex;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #f5f5f5;
+}
 
-        #name {
-            text-align: left;
-        }
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
 
-        #input {
-            border: 1px solid black;
-        }
+.form-signin .checkbox {
+  font-weight: 400;
+}
 
-        #submit {
-            color: white;
-            background-color: #497BAC;
-            width: 50px;
-            height: 43px;
-            border: none;
-            border-radius: 2px;
-        }
-        
-        #submit:hover {
-        	background-color: 6589AD;
-        }
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
 
-        #register {
-            margin-top: 10px;
-            color: white;
-            background-color: black;
-            border: none;
-            border-radius: 2px;
-            margin-left: -20px;
-        }
-        
-        #register:hover {
-        	background-color: 404040;
-        }
-        
-	</style>
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+      
+    </style>
 </head>
-<body>
+<body class="text-center">
 <div id="login">
-	<h3>TodoList</h3>
+	<main class="form-signin">
 
     <form action="loginOK" method="GET">
-        <table id="loginpage">
-            <tr><td id="name">ID : </td><td><input id="input" type="text" name="userid"/></td> <td rowspan="2"><input id="submit" type="submit" value="로그인"></td></tr>
-            <tr><td id="name">Password : </td><td><input id="input" type="password" name="password"/></td></tr>
-        </table>
-        <button id="register" type="button" onclick="location.href='register'">회원가입</button>
+    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+    <div class="form-floating">
+      <input type="text" class="form-control" id="input" name="userid" placeholder="ID">
+      <label for="floatingInput">ID</label>
+    </div>
+    <div class="form-floating">
+      <input type="password" class="form-control" id="input" name="password" placeholder="Password">
+      <label for="floatingPassword">Password</label>
+    </div>
+
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Remember me
+      </label>
+    </div>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+    <button id="register" type="button" onclick="location.href='register'">회원가입</button>
+    <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+       
     </form>
 </div>
-</body>
+
+
+    
+  </body>
 </html>
 
