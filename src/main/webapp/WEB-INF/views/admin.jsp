@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>boardList</title>
+<title>manager page</title>
 
 <style>
 body {
@@ -35,8 +35,7 @@ body {
 </style>
 </head>
 <body>
-<h1>자유게시판</h1>
-<h1>Hello ${user.username}</h1>
+<p></p>
 <table id="list" width="90%">
 <tr>
  	<th>Id</th>
