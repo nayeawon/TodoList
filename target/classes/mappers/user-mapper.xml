@@ -2,8 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="User">
 	<select id="getUser" resultType="user">
-		select userid, username, sid from MEMBER
+		select * from MEMBER
 		where userid=#{userid} and password=#{password}
+	</select>
+	
+	<select id="getOneUser" resultType="user">
+		select * from MEMBER
+		where sid=#{sid}
+	</select>
+	
+	<select id="getUserList" resultType="user">
+		select * from MEMBER order by sid
 	</select>
 	
 	<insert id="addUser">
@@ -11,4 +20,14 @@
 		values 
 		(#{userid} , #{password} , #{username} , #{email} , #{gender} , #{phone} )
 	</insert>
+	
+	<delete id="deleteUser">
+		delete from MEMBER where sid=#{sid}
+	</delete>
+	
+	<update id="updateUser">
+		update MEMBER
+		set userid=#{userid}, username=#{username}, password=#{password}, email=#{email}, phone=#{phone}, gender=#{gender}
+		where sid=#{sid}
+	</update>
 </mapper>

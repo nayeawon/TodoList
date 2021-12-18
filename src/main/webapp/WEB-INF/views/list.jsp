@@ -119,7 +119,7 @@ body {
 </c:forEach>
 
 <div class="col-auto px-0 mx-0 mr-2" style="location: center">
-	<br><button type="button" class="btn btn-primary" onclick=logout()>Logout</button>
+	<br><button type="button" style="margin-left: 48%" class="btn btn-primary" onclick=logout()>Logout</button>
 </div>
 
 <script>

@@ -22,11 +22,19 @@ public class TodoListController {
 	@RequestMapping(value = "/todo/list", method = RequestMethod.GET)
 	public String itemList(Model model, HttpSession session) {
 		
+		String returnUrl = "list";
+		
 		UserVO vo = (UserVO) session.getAttribute("login");
+		
+		if(vo.getUserid().equals("admin")) {
+			model.addAttribute("users", userService.getUserList());
+			returnUrl = "admin";
+		}
+		
 		model.addAttribute("item", todolistService.getItemList(vo.getSid()));
 		model.addAttribute("user", vo);
 		
-		return "list";
+		return "admin";
 	}
 	
 	@RequestMapping(value = "/todo/add", method = RequestMethod.GET)
@@ -57,6 +65,24 @@ public class TodoListController {
 		return "edititem";
 	}
 	
+	@RequestMapping(value = "/todo/edituser/{id}", method = RequestMethod.GET)
+	public String editUser(@PathVariable("id") int sid, Model model) {
+		UserVO userVO = userService.getOneUser(sid);
+		model.addAttribute("userVO", userVO);
+		return "edituser";
+	}
+	
+	@RequestMapping(value = "/todo/edituserok", method = RequestMethod.GET)
+	public String editUserOK(UserVO vo) {
+		int i = userService.updateUser(vo);
+		if(i == 0)
+			System.out.println("유저 수정 실패 ");
+		else
+			System.out.println("유저 수정 성공!");
+		
+		return "redirect:list";
+	}
+	
 	@RequestMapping(value = "/todo/editok", method = RequestMethod.GET)
 	public String editItemOK(TodoListVO vo) {
 		int i = todolistService.updateItem(vo);
@@ -75,6 +101,17 @@ public class TodoListController {
 			System.out.println("데이터 삭제 실패 ");
 		else
 			System.out.println("데이터 삭제 성공!");
+		
+		return "redirect:../list";
+	}
+	
+	@RequestMapping(value = "/todo/deleteuser/{id}", method = RequestMethod.GET)
+	public String deleteUserOK(@PathVariable("id") int sid) {
+		int i = userService.deleteUser(sid);
+		if(i == 0)
+			System.out.println("유저 삭제 실패 ");
+		else
+			System.out.println("유저 삭제 성공!");
 		
 		return "redirect:../list";
 	}
