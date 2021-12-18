@@ -12,7 +12,7 @@
 	<title>Login</title>
 	<link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/sign-in/">
 	<link href="../resources/css/bootstrap.min.css" rel="stylesheet">
-
+	
     <style>
        html,
 body {
@@ -42,7 +42,7 @@ body {
   z-index: 2;
 }
 
-.form-signin input[type="email"] {
+.form-signin input[type="id"] {
   margin-bottom: -1px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
@@ -53,39 +53,49 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+.bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
       
     </style>
 </head>
 <body class="text-center">
-<div id="login">
-	<main class="form-signin">
-
-    <form action="loginOK" method="GET">
-    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-
-    <div class="form-floating">
-      <input type="text" class="form-control" id="input" name="userid" placeholder="ID">
-      <label for="floatingInput">ID</label>
-    </div>
-    <div class="form-floating">
-      <input type="password" class="form-control" id="input" name="password" placeholder="Password">
-      <label for="floatingPassword">Password</label>
-    </div>
-
-    <div class="checkbox mb-3">
-      <label>
-        <input type="checkbox" value="remember-me"> Remember me
-      </label>
-    </div>
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-    <button id="register" type="button" onclick="location.href='register'">회원가입</button>
-    <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
-       
-    </form>
-</div>
-
-
-    
-  </body>
+	<div id="login">
+		<main class="form-signin">
+	
+	    <form action="loginOK" method="GET">
+	    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+	
+	    <div class="form-floating">
+	      <input type="id" class="form-control" id="floatingInput" name="userid" placeholder="ID">
+	      <label for="floatingInput">ID</label>
+	    </div>
+	    <div class="form-floating">
+	      <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
+	      <label for="floatingPassword">Password</label>
+	    </div>
+	
+	    <div class="checkbox mb-3">
+	      <label>
+	        <input type="checkbox" value="remember-me"> Remember me
+	      </label>
+	    </div>
+	    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+	    <button id="register" type="button" onclick="location.href='register'">회원가입</button>
+	    <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+	       
+	    </form>
+	</div>
+ </body>
 </html>
 
