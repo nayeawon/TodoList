@@ -70,7 +70,7 @@ body {
 	<div class="col">
 		<div class="p-1 h1 text-primary text-center mx-auto display-inline-block">
 			<i class="fa fa-check bg-primary text-white rounded p-2"></i>
-                <u>${user.username} Todo-s</u>
+                <u>${user.username}'s Todo-s</u>
         </div>
     </div>
 </div>
@@ -112,7 +112,7 @@ body {
                 <div class="col-auto m-1 p-0 todo-actions">
                     <div class="row d-flex align-items-center justify-content-end">
                         <h5 class="m-0 p-0 px-2">
-                            <button type="button" class="btn" onclick=edit()><i class="fa fa-pencil text-info btn m-0 p-0" data-toggle="tooltip" data-placement="bottom" title="Edit todo"></i></button>
+                            <button type="button" class="btn" onclick=edit(${u.id})><i class="fa fa-pencil text-info btn m-0 p-0" data-toggle="tooltip" data-placement="bottom" title="Edit todo"></i></button>
                         </h5>
                         <h5 class="m-0 p-0 px-2">
                             <button type="button" class="btn" onclick=delete_ok()></button><i class="fa fa-trash-o text-danger btn m-0 p-0" data-toggle="tooltip" data-placement="bottom" title="Delete todo"></i></button>
@@ -149,7 +149,7 @@ body {
 	}
 	
 	function edit(id) {
-		location.href = '/edititem/${u.id}';
+		location.href = "./edititem/" + id;
 	}
 	window.onload = function () {
 	    bootlint.showLintReportForCurrentDocument([], {
