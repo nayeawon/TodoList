@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>boardList</title>
+<title>manager page</title>
 
 <style>
 body {
